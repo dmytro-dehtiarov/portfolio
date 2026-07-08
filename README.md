@@ -7,9 +7,7 @@ A responsive personal portfolio built with plain HTML, CSS and JavaScript. Five 
 ## Live demo
 
 Once deployed to GitHub Pages, the site will be available at:
-`https://<your-github-username>.github.io/<repo-name>/`
-
-(Update this link after deploying — see [Deployment](#deployment) below.)
+`(https://dmytro-dehtiarov.github.io/portfolio/)`
 
 ## Features
 
