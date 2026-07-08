@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dmytro Dehtiarov — Full-Stack Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Dmytro Dehtiarov, a Computer Programming student at Algonquin College in Ottawa. Full-stack projects built with JavaScript, Java, Python and SQL.">
+    <meta property="og:title" content="Dmytro Dehtiarov — Full-Stack Developer Portfolio">
+    <meta property="og:description" content="Computer Programming student at Algonquin College. I build clean, responsive web apps and command-line tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Header_img.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- BUILD:HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="header-left">
+                    <div class="red-tag uppercase">Computer programming</div>
+                    <div class="muted-subtitle uppercase">STUDENT · Ottawa, ON</div>
+                </div>
+
+                <!-- Burger toggle, only visible on mobile (see script.js) -->
+                <button type="button" class="burger-btn" id="burgerBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="active" data-page="index"><span class="nav-num">01</span> home</a></li>
+                    <li><a href="resume.html" data-page="resume"><span class="nav-num">02</span> resume</a></li>
+                    <li><a href="projects.html" data-page="projects"><span class="nav-num">03</span> projects</a></li>
+                    <li><a href="contact.html" data-page="contact"><span class="nav-num">04</span> contact</a></li>
+                </ul>
+
+                <div class="header-right">
+                    <a href="resume.pdf" download class="header-resume-link uppercase">Resume <span class="header-resume-arrow">↓</span></a>
+                    <span class="uppercase">Available for work</span>
+                    <span class="header-star">✦</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- /BUILD:HEADER -->
+
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero">
+            <div class="container hero-inner">
+                <span class="hero-word uppercase">portfolio</span>
+
+                <div class="hero-content">
+                    <span class="hero-greeting">Hello, I'm</span>
+                    <h1 class="hero-name uppercase">Dmytro<br>Dehtiarov</h1>
+                    <h2 class="hero-title uppercase">full-stack developer &amp; problem solver</h2>
+
+                    <p>
+                        Second-term Computer Programming student at
+                        Algonquin College in Ottawa. I <strong>build clean, responsive
+                        web apps</strong> and command-line tools — focused on
+                        readable code, solid logic, and interfaces that just work.
+                    </p>
+                    <div class="hero-location">
+                        <span class="hero-location-circle">●</span>
+                        <span class="uppercase">Based in Ottawa, Canada</span>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrap">
+                    <img src="images/Header_img.png" alt="Dmytro Dehtiarov portrait" class="hero-image">
+                </div>
+
+                <!-- Quick stats, shown as a stacked list -->
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label uppercase">Languages &amp; Tools</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label uppercase">Years Studying</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3.9</span>
+                        <span class="stat-label uppercase">GPA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COLLEGE SECTION ===== -->
+        <section class="college">
+            <div class="container">
+                <div class="section-label">
+                    <h2 class="uppercase">Currently studying</h2>
+                    <span class="section-label-line"></span>
+                </div>
+                <div class="college-columns">
+                    <div class="college-logo">
+                        <a href="https://www.algonquincollege.com" target="_blank" rel="noopener noreferrer" class="uppercase">Algonquin<br>College</a>
+                    </div>
+                    <div class="college-info">
+                        <p>Computer Programming Diploma · Ottawa, ON. Expected graduation 2028. Handson coursework across full-stack web, object-oriented design, databases and mobile.</p>
+                        <ul class="skill-list">
+                            <li class="skill-chip">Java</li>
+                            <li class="skill-chip">C# / .NET</li>
+                            <li class="skill-chip">Web Dev</li>
+                            <li class="skill-chip">Databases</li>
+                            <li class="skill-chip">Mobile Dev</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HOBBIES SECTION ===== -->
+        <section class="hobbies">
+            <div class="container">
+                <div class="section-label">
+                    <h2 class="uppercase white-color">Beyond the code</h2>
+                    <span class="hobbies-star">✦</span>
+                    <span class="section-label-line"></span>
+                </div>
+
+                <div class="hobbies-grid">
+                    <article class="hobby-card">
+                        <span class="hobby-number">01</span>
+                        <h3>Cooking</h3>
+                        <p>From scratch ramen broths to homemade sushi rolls.</p>
+                    </article>
+
+                    <article class="hobby-card">
+                        <span class="hobby-number">02</span>
+                        <h3>Side Projects</h3>
+                        <p>Building fun and useful applications in my spare time.</p>
+                    </article>
+
+                    <article class="hobby-card">
+                        <span class="hobby-number">03</span>
+                        <h3>Astronomy</h3>
+                        <p>Stargazing with my telescope around Ottawa's clear nights.</p>
+                    </article>
+
+                    <article class="hobby-card">
+                        <span class="hobby-number">04</span>
+                        <h3>Continuous Learning</h3>
+                        <p>Structured notes and self-testing on everything new.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BUILD:FOOTER -->
+    <footer>
+        <div class="container">
+            <p class="footer-copyright">&copy; 2026 Dmytro Dehtiarov. All rights reserved.</p>
+
+            <div class="footer-links">
+                <a href="resume.pdf" download>Resume (PDF)</a>
+                <a href="mailto:degtyarev.dmitry02@gmail.com">Email</a>
+                <a href="https://github.com/dmytro-dehtiarov" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/dmytro-dehtiarov-7aa991253/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    <!-- /BUILD:FOOTER -->
+
+    <script src="js/script.js"></script>
+</body>
+</html>

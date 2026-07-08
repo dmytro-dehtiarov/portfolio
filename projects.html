@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Dmytro Dehtiarov</title>
+    <meta name="description" content="Selected projects by Dmytro Dehtiarov: a portfolio website, an order & inventory backend, a sports league database, and a Telegram media downloader CLI.">
+    <meta property="og:title" content="Projects — Dmytro Dehtiarov">
+    <meta property="og:description" content="Selected projects: portfolio website, order & inventory platform, sports league database, Telegram media downloader.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/ProjectLanding.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- BUILD:HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="header-left">
+                    <div class="red-tag uppercase">Computer programming</div>
+                    <div class="muted-subtitle uppercase">STUDENT · Ottawa, ON</div>
+                </div>
+
+                <button type="button" class="burger-btn" id="burgerBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" data-page="index"><span class="nav-num">01</span> home</a></li>
+                    <li><a href="resume.html" data-page="resume"><span class="nav-num">02</span> resume</a></li>
+                    <li><a href="projects.html" class="active" data-page="projects"><span class="nav-num">03</span> projects</a></li>
+                    <li><a href="contact.html" data-page="contact"><span class="nav-num">04</span> contact</a></li>
+                </ul>
+
+                <div class="header-right">
+                    <a href="resume.pdf" download class="header-resume-link uppercase">Resume <span class="header-resume-arrow">↓</span></a>
+                    <span class="uppercase">Available for work</span>
+                    <span class="header-star">✦</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- /BUILD:HEADER -->
+
+    <main>
+
+        <section class="projects">
+            <div class="container">
+                <!-- Hidden heading, just here so screen readers get a page title -->
+                <h1 class="sr-only">Projects</h1>
+
+                <div class="projects-top">
+                    <span class="red-tag uppercase">Selected projects</span>
+                    <span class="muted-subtitle uppercase">Dmytro Dehtiarov · 2023 - 2026</span>
+                </div>
+
+                <!--
+                    Slideshow: only one .project has the "active" class at a time.
+                    script.js swaps it on prev/next clicks — see .project / .project.active in styles.css
+                -->
+
+                <!-- Slide 1: Portfolio Website -->
+                <article class="project active">
+                    <div class="project-media">
+                        <span class="project-slide-count">01 / 04</span>
+                        <div class="project-image">
+                            <img src="images/ProjectLanding.png" alt="Project Landing" class="project-screenshot">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num-bg">01</span>
+                        <span class="muted-subtitle uppercase project-year">2026 · Personal</span>
+                        <h2 class="project-title uppercase">Portfolio Website</h2>
+                        <p class="project-subtitle uppercase">Personal Showcase</p>
+                        <p class="project-desc">A responsive portfolio website to display my work and skills. Built with vanilla HTML, CSS and JavaScript <strong>(School project)</strong>.</p>
+                        <ul class="skill-list">
+                            <li class="skill-chip">HTML</li>
+                            <li class="skill-chip">CSS</li>
+                            <li class="skill-chip">JavaScript</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Slide 2: Order Platform -->
+                <article class="project">
+                    <div class="project-media">
+                        <span class="project-slide-count">02 / 04</span>
+                        <div class="project-image">
+                            <img src="images/OrderInventoryPlatform.png" alt="Order Inventory Platform" class="project-screenshot">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num-bg">02</span>
+                        <span class="muted-subtitle uppercase project-year">Present · Personal</span>
+                        <h2 class="project-title uppercase">Order Platform</h2>
+                        <p class="project-subtitle uppercase">Backend Management System</p>
+                        <p class="project-desc">Production-style order and inventory backend with modular monolith architecture, JWT authentication and transactional order processing.</p>
+                        <ul class="skill-list">
+                            <li class="skill-chip">Java</li>
+                            <li class="skill-chip">Spring Boot</li>
+                            <li class="skill-chip">PostgreSQL</li>
+                            <li class="skill-chip">Docker</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Slide 3: Sportsleague DB -->
+                <article class="project">
+                    <div class="project-media">
+                        <span class="project-slide-count">03 / 04</span>
+                        <div class="project-image">
+                            <img src="images/SportsLeagueDB.png" alt="Sports League Database" class="project-screenshot">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num-bg">03</span>
+                        <span class="muted-subtitle uppercase project-year">2026 · Academic</span>
+                        <h2 class="project-title uppercase">Sportsleague db</h2>
+                        <p class="project-subtitle uppercase">Database Management System</p>
+                        <p class="project-desc">Relational database for sports league management with stored procedures, UDFs, ROLLUP aggregations and Azure SQL deployment.</p>
+                        <ul class="skill-list">
+                            <li class="skill-chip">T-SQL</li>
+                            <li class="skill-chip">Azure SQL</li>
+                            <li class="skill-chip">SQL Server</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Slide 4: Media Downloader -->
+                <article class="project">
+                    <div class="project-media">
+                        <span class="project-slide-count">04 / 04</span>
+                        <div class="project-image">
+                            <img src="images/MediaDownloader.png" alt="Telegram Media Downloader" class="project-screenshot">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num-bg">04</span>
+                        <span class="muted-subtitle uppercase project-year">2023 · Personal</span>
+                        <h2 class="project-title uppercase">Media Downloader</h2>
+                        <p class="project-subtitle uppercase">CLI Media Tool</p>
+                        <p class="project-desc">CLI tool to download videos, photos and documents from Telegram channels. Supports type filters, date ranges and session-based auth</p>
+                        <ul class="skill-list">
+                            <li class="skill-chip">Python</li>
+                            <li class="skill-chip">Telethon</li>
+                            <li class="skill-chip">CLI</li>
+                            <li class="skill-chip">API</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Prev / next controls + slide counter -->
+            <div class="projects-pager">
+                <div class="container projects-pager-inner">
+                    <button type="button" class="pager-btn" id="prevBtn" aria-label="Previous project">
+                        <span class="pager-arrow">&lt;</span>
+                        <span class="uppercase">Previous</span>
+                    </button>
+
+                    <div class="pager-track">
+                        <span class="pager-current" id="pagerCurrent">01</span>
+                        <span class="section-label-line"></span>
+                        <span class="pager-total">04</span>
+                    </div>
+
+                    <button type="button" class="pager-btn pager-btn-next" id="nextBtn" aria-label="Next project">
+                        <span class="uppercase">Next</span>
+                        <span class="pager-arrow">&gt;</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BUILD:FOOTER -->
+    <footer>
+        <div class="container">
+            <p class="footer-copyright">&copy; 2026 Dmytro Dehtiarov. All rights reserved.</p>
+
+            <div class="footer-links">
+                <a href="resume.pdf" download>Resume (PDF)</a>
+                <a href="mailto:degtyarev.dmitry02@gmail.com">Email</a>
+                <a href="https://github.com/dmytro-dehtiarov" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/dmytro-dehtiarov-7aa991253/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    <!-- /BUILD:FOOTER -->
+
+    <script src="js/script.js"></script>
+</body>
+</html>

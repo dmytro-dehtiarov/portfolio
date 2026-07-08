@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Dmytro Dehtiarov</title>
+    <meta name="description" content="Get in touch with Dmytro Dehtiarov — Computer Programming student at Algonquin College, Ottawa. Open to internships, co-op terms and junior developer roles.">
+    <meta property="og:title" content="Contact — Dmytro Dehtiarov">
+    <meta property="og:description" content="Open to internships, co-op terms and junior developer roles starting 2026.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/Header_img.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- BUILD:HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="header-left">
+                    <div class="red-tag uppercase">Computer programming</div>
+                    <div class="muted-subtitle uppercase">STUDENT · Ottawa, ON</div>
+                </div>
+
+                <button type="button" class="burger-btn" id="burgerBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" data-page="index"><span class="nav-num">01</span> home</a></li>
+                    <li><a href="resume.html" data-page="resume"><span class="nav-num">02</span> resume</a></li>
+                    <li><a href="projects.html" data-page="projects"><span class="nav-num">03</span> projects</a></li>
+                    <li><a href="contact.html" class="active" data-page="contact"><span class="nav-num">04</span> contact</a></li>
+                </ul>
+
+                <div class="header-right">
+                    <a href="resume.pdf" download class="header-resume-link uppercase">Resume <span class="header-resume-arrow">↓</span></a>
+                    <span class="uppercase">Available for work</span>
+                    <span class="header-star">✦</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- /BUILD:HEADER -->
+
+    <main>
+
+        <!-- ===== PAGE HEADING ===== -->
+        <section class="contact-hero">
+            <div class="container">
+                <span class="red-tag uppercase">Get in touch</span>
+                <h1 class="uppercase contact-heading">
+                    <span class="white-color">Let's<br>Work</span><br>
+                    <span class="accent-color">Together</span>
+                </h1>
+            </div>
+        </section>
+
+        <!-- ===== FORM + CONTACT INFO ===== -->
+        <section class="contact-content">
+            <div class="container split-grid">
+                <!-- Hidden heading, just here so screen readers get a label for this section -->
+                <h2 class="sr-only">Contact form and details</h2>
+
+                <!--
+                    Form validated in script.js: required fields + email format check.
+                    Submits via Formspree (https://formspree.io) — no backend needed.
+                    Replace YOUR_FORM_ID below with your own Formspree form ID
+                    (sign up free at formspree.io, create a form, copy the ID from
+                    the endpoint it gives you). See README.md for step-by-step setup.
+                -->
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="name" class="uppercase">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Jane Doe">
+                            <span class="field-error" id="nameError"></span>
+                        </div>
+                        <div class="form-field">
+                            <label for="email" class="uppercase">Email</label>
+                            <input type="email" id="email" name="email" placeholder="jane@email.com">
+                            <span class="field-error" id="emailError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="subject" class="uppercase">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Project inquiry">
+                        <span class="field-error" id="subjectError"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="message" class="uppercase">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+                        <span class="field-error" id="messageError"></span>
+                    </div>
+
+                    <button type="submit" class="btn-send" id="submitBtn">
+                        Send Message
+                        <span class="btn-arrow">→</span>
+                    </button>
+
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                </form>
+
+                <!-- Side panel: short intro + direct contact details -->
+                <div class="contact-side">
+                    <p class="contact-intro">Open to internships, co-op terms and junior developer roles starting 2026. I usually reply within a day.</p>
+
+                    <ul class="contact-details">
+                        <li class="contact-item">
+                            <span class="contact-icon">✉</span>
+                            <span>
+                                <span class="contact-label uppercase">Email</span>
+                                <a href="mailto:degtyarev.dmitry02@gmail.com" class="contact-value link-plain">degtyarev.dmitry02@gmail.com</a>
+                            </span>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-icon">☎</span>
+                            <span>
+                                <span class="contact-label uppercase">Phone</span>
+                                <a href="tel:+16136008353" class="contact-value link-plain">+1&nbsp;(613)&nbsp;600&#8209;8353</a>
+                            </span>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>
+                                <span class="contact-label uppercase">Location</span>
+                                <span class="contact-value">Ottawa, ON · Canada</span>
+                            </span>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-icon">⊕</span>
+                            <span>
+                                <span class="contact-label uppercase">Online</span>
+                                <a href="https://www.linkedin.com/in/dmytro-dehtiarov-7aa991253/" target="_blank" rel="noopener noreferrer" class="contact-value link-plain">linkedin.com/in/dmytro-dehtiarov-7aa991253</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BUILD:FOOTER -->
+    <footer>
+        <div class="container">
+            <p class="footer-copyright">&copy; 2026 Dmytro Dehtiarov. All rights reserved.</p>
+
+            <div class="footer-links">
+                <a href="resume.pdf" download>Resume (PDF)</a>
+                <a href="mailto:degtyarev.dmitry02@gmail.com">Email</a>
+                <a href="https://github.com/dmytro-dehtiarov" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/dmytro-dehtiarov-7aa991253/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    <!-- /BUILD:FOOTER -->
+
+    <script src="js/script.js"></script>
+</body>
+</html>
