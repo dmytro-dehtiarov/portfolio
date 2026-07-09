@@ -6,10 +6,7 @@ A responsive personal portfolio built with plain HTML, CSS and JavaScript. Five 
 
 ## Live demo
 
-Once deployed to GitHub Pages, the site will be available at:
-`https://<your-github-username>.github.io/<repo-name>/`
-
-(Update this link after deploying — see [Deployment](#deployment) below.)
+**[dmytro-dehtiarov.github.io/portfolio](https://dmytro-dehtiarov.github.io/portfolio/)**
 
 ## Features
 
@@ -85,18 +82,11 @@ The published site is still 100% static HTML; this script only needs to run on y
 
 ## Setting up the contact form (Formspree)
 
-The form in `contact.html` posts to Formspree so it works with zero backend code. To make it actually deliver mail to you:
+The form in `contact.html` posts to Formspree so it works with zero backend code — already wired up to a live Formspree endpoint (`https://formspree.io/f/xjgqqkyl`).
 
-1. Create a free account at [formspree.io](https://formspree.io).
-2. Create a new form and copy the form ID it gives you (looks like `xayzabcd`).
-3. In `contact.html`, find the `<form>` tag:
-   ```html
-   <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-   ```
-4. Replace `YOUR_FORM_ID` with your real ID.
-5. Submit a test message — Formspree requires confirming the first submission by clicking a link it emails you.
+`script.js` submits it with `fetch()` and an `Accept: application/json` header, which is Formspree's documented vanilla-JS AJAX pattern — the page never reloads, and a success/error message appears under the button instead. No Formspree client library (`@formspree/ajax`) is needed on top of that; it would just duplicate what the fetch call already does, and would mean replacing the site's own live-validation/error-message markup with Formspree's `data-fs-*` attributes.
 
-Until step 4 is done, the form will validate correctly on the client but fail to actually send (Formspree will reject the placeholder ID).
+If you reuse this template for your own form, create a free account at [formspree.io](https://formspree.io), create a form, and swap the `action` URL and the `fetch()` target in `script.js` for your own endpoint. The very first submission requires confirming via a link Formspree emails you before it'll deliver further messages.
 
 ## Deployment (GitHub Pages)
 

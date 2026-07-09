@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
     <title>Contact - Dmytro Dehtiarov</title>
     <meta name="description" content="Get in touch with Dmytro Dehtiarov — Computer Programming student at Algonquin College, Ottawa. Open to internships, co-op terms and junior developer roles.">
     <meta property="og:title" content="Contact — Dmytro Dehtiarov">
@@ -69,11 +70,11 @@
                 <!--
                     Form validated in script.js: required fields + email format check.
                     Submits via Formspree (https://formspree.io) — no backend needed.
-                    Replace YOUR_FORM_ID below with your own Formspree form ID
-                    (sign up free at formspree.io, create a form, copy the ID from
-                    the endpoint it gives you). See README.md for step-by-step setup.
+                    script.js posts this via fetch() with an "Accept: application/json"
+                    header, which is Formspree's documented vanilla-JS AJAX pattern, so no
+                    Formspree client library is needed on top of it.
                 -->
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xjgqqkyl" method="POST" novalidate>
                     <div class="form-row">
                         <div class="form-field">
                             <label for="name" class="uppercase">Name</label>
@@ -117,6 +118,7 @@
                             <span>
                                 <span class="contact-label uppercase">Email</span>
                                 <a href="mailto:degtyarev.dmitry02@gmail.com" class="contact-value link-plain">degtyarev.dmitry02@gmail.com</a>
+                                <a href="mailto:deht0001@algonquinlive.com" class="contact-value link-plain">deht0001@algonquinlive.com</a>
                             </span>
                         </li>
                         <li class="contact-item">

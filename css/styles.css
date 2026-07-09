@@ -1,4 +1,12 @@
 :root {
+    /* Tells the browser this page is intentionally dark-themed, so browsers
+       with a "force dark mode on websites" feature (Opera, Chrome/Edge on
+       Android, Samsung Internet, etc.) don't apply their own color-inversion
+       filter on top of it — that double-processing is what breaks the
+       colors/contrast in Opera. Also themes native form controls/scrollbars
+       to match. */
+    color-scheme: dark;
+
     /* Colors */
     --color-background: #0a0a0a;
     --color-background-nav: rgba(10, 10, 10, 0.85);
@@ -649,6 +657,28 @@ nav {
 .skills-block > .red-tag {
     display: block;
     margin-bottom: var(--space-sm);
+}
+
+/* Sub-groups within Skills (Languages, Frameworks, Databases, etc.) —
+   .skill-group-label reuses .muted-subtitle's generic caption style. */
+.skill-group {
+    margin-top: var(--space-sm);
+}
+
+.skill-group:first-child {
+    margin-top: 0;
+}
+
+.skill-group-label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.skills-assets {
+    margin-top: var(--space-sm);
+    font-size: var(--fs-body-sm);
+    color: var(--color-text-body);
+    line-height: 1.5;
 }
 
 /* ===== Resume Rows (education / experience items) ===== */
