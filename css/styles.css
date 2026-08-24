@@ -654,6 +654,10 @@ nav {
     margin-top: var(--space-lg);
 }
 
+.resume-section-spaced {
+    margin-top: var(--space-lg);
+}
+
 .skills-block > .red-tag {
     display: block;
     margin-bottom: var(--space-sm);
