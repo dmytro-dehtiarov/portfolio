@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
-    <title>Dmytro Dehtiarov — Full-Stack Developer Portfolio</title>
+    <title>Dmytro Dehtiarov - Full-Stack Developer Portfolio</title>
     <meta name="description" content="Portfolio of Dmytro Dehtiarov, a Computer Programming student at Algonquin College in Ottawa. Full-stack projects built with JavaScript, Java, Python and SQL.">
     <meta property="og:title" content="Dmytro Dehtiarov — Full-Stack Developer Portfolio">
     <meta property="og:description" content="Computer Programming student at Algonquin College. I build clean, responsive web apps and command-line tools.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/Header_img.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -51,8 +53,10 @@
 
     <main>
 
+        <div class="page-grain" aria-hidden="true"></div>
+
         <!-- ===== HERO SECTION ===== -->
-        <section class="hero">
+        <section class="hero reveal">
             <div class="container hero-inner">
                 <span class="hero-word uppercase">portfolio</span>
 
@@ -79,11 +83,11 @@
                 <!-- Quick stats, shown as a stacked list -->
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">8+</span>
+                        <span class="stat-number">20 +</span>
                         <span class="stat-label uppercase">Languages &amp; Tools</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">2+</span>
+                        <span class="stat-number">2 +</span>
                         <span class="stat-label uppercase">Years Studying</span>
                     </div>
                     <div class="stat">
@@ -95,7 +99,7 @@
         </section>
 
         <!-- ===== COLLEGE SECTION ===== -->
-        <section class="college">
+        <section class="college reveal reveal-09">
             <div class="container">
                 <div class="section-label">
                     <h2 class="uppercase">Currently studying</h2>
@@ -106,12 +110,12 @@
                         <a href="https://www.algonquincollege.com" target="_blank" rel="noopener noreferrer" class="uppercase">Algonquin<br>College</a>
                     </div>
                     <div class="college-info">
-                        <p>Computer Programming Diploma · Ottawa, ON. Expected graduation 2028. Handson coursework across full-stack web, object-oriented design, databases and mobile.</p>
+                        <p>Computer Programming Diploma · Ottawa, ON. Expected graduation December 2027. Hands-on coursework across full-stack web, object-oriented design, databases and mobile.</p>
                         <ul class="skill-list">
                             <li class="skill-chip">Java</li>
-                            <li class="skill-chip">Design Patterns</li>
-                            <li class="skill-chip">Web Dev</li>
-                            <li class="skill-chip">Databases</li>
+                            <li class="skill-chip">Spring Boot</li>
+                            <li class="skill-chip">SQL</li>
+                            <li class="skill-chip">React</li>
                         </ul>
                     </div>
                 </div>
@@ -119,7 +123,7 @@
         </section>
 
         <!-- ===== HOBBIES SECTION ===== -->
-        <section class="hobbies">
+        <section class="hobbies reveal reveal-16">
             <div class="container">
                 <div class="section-label">
                     <h2 class="uppercase white-color">Beyond the code</h2>

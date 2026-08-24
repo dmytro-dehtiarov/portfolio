@@ -11,10 +11,12 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/Header_img.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="page-resume">
 
     <!-- BUILD:HEADER -->
 <header>
@@ -49,246 +51,238 @@
     </header>
     <!-- /BUILD:HEADER -->
 
-    <main>
+    <main class="resume-broadsheet">
 
-        <!-- ===== PAGE TITLE ===== -->
-        <section class="resume">
+        <div class="page-grain" aria-hidden="true"></div>
+        <span class="broadsheet-rail-label" aria-hidden="true">Curriculum vitae · No. 02</span>
+
+        <!-- ===== TITLE BLOCK ===== -->
+        <section class="bs-title reveal">
             <div class="container">
-                <div class="page-title-block">
-                    <div class="red-tag uppercase">Dmytro Dehtiarov — resume</div>
-                    <h1 class="uppercase page-title">resume</h1>
-                </div>
-                <div class="muted-subtitle uppercase">Updated · August 2026</div>
-            </div>
-        </section>
+                <div class="resume-section">
+                    <span class="bs-kicker">Updated August 2026 — Computer Programming, Algonquin College</span>
 
-        <!-- ===== EDUCATION + EXPERIENCE (two columns) ===== -->
-        <section class="resume-content">
-            <div class="container split-grid">
-
-                <!-- Education column -->
-                <div class="education">
-                    <h2 class="red-tag uppercase">Education</h2>
-
-                    <div class="resume-row edu-item">
+                    <div class="bs-title-grid">
                         <div>
-                            <h3 class="edu-title">Computer Programming, Diploma (Co-op)</h3>
-                            <p class="edu-institution">Algonquin College · Ottawa, ON · GPA 3.9 · Dean's Honour List</p>
-                            <p class="edu-coursework">Relevant coursework: Introduction to Computer Programming, Introduction to Database, Database Systems, Object-Oriented Programming (Java), Operating System Fundamentals (Linux), Web Programming, Systems Analysis &amp; Design, Mobile Graphical Interface Programming, Network Programming, Object-Oriented Programming with Design Patterns, Advanced Database Topics, Enterprise Application Programming, Software Development Project</p>
+                            <h1 class="bs-headline">resume</h1>
+                            <p class="bs-name">Dmytro Dehtiarov</p>
                         </div>
-                        <span class="edu-year">2026 - Present</span>
-                    </div>
-
-                    <div class="resume-row edu-item">
-                        <div>
-                            <h3 class="edu-title">Practical React</h3>
-                            <p class="edu-institution">SoftServe Academy · Online</p>
+                        <div class="bs-summary">
+                            <p>Detail-oriented Computer Programming student with hands-on experience building and testing object-oriented Java applications with Spring Boot, full-stack apps with Node.js, Express and React, and relational databases on Oracle and Azure SQL.</p>
+                            <p>Two years in a fast-paced, team-based hospitality environment. Quick learner, reliable under pressure, comfortable solo or on a team.</p>
                         </div>
-                        <span class="edu-year">2023</span>
-                    </div>
-
-                    <div class="resume-row edu-item">
-                        <div>
-                            <h3 class="edu-title">Frontend Development</h3>
-                            <p class="edu-institution">SoftServe IT Academy · Online</p>
-                        </div>
-                        <span class="edu-year">2022</span>
-                    </div>
-
-                    <div class="resume-row edu-item">
-                        <div>
-                            <h3 class="edu-title">Bachelor's, Marketing</h3>
-                            <p class="edu-institution">Alfred Nobel University · Dnipro, Ukraine</p>
-                        </div>
-                        <span class="edu-year">2021 - 2024</span>
-                    </div>
-
-                    <!-- Skills chips, tucked under education -->
-                    <div class="skills-block">
-                        <h3 class="red-tag uppercase">Skills</h3>
-
-                        <div class="skill-group">
-                            <span class="muted-subtitle uppercase skill-group-label">Languages</span>
-                            <ul class="skill-list">
-                                <li class="skill-chip">JavaScript / ES6+</li>
-                                <li class="skill-chip">Java</li>
-                                <li class="skill-chip">Python</li>
-                            </ul>
-                        </div>
-
-                        <div class="skill-group">
-                            <span class="muted-subtitle uppercase skill-group-label">Frameworks &amp; Libraries</span>
-                            <ul class="skill-list">
-                                <li class="skill-chip">React</li>
-                                <li class="skill-chip">Redux</li>
-                                <li class="skill-chip">Node.js</li>
-                                <li class="skill-chip">Express.js</li>
-                                <li class="skill-chip">Mongoose</li>
-                                <li class="skill-chip">Spring Boot</li>
-                            </ul>
-                        </div>
-
-                        <div class="skill-group">
-                            <span class="muted-subtitle uppercase skill-group-label">Databases</span>
-                            <ul class="skill-list">
-                                <li class="skill-chip">PostgreSQL</li>
-                                <li class="skill-chip">MySQL</li>
-                                <li class="skill-chip">Oracle</li>
-                                <li class="skill-chip">SQL Server</li>
-                                <li class="skill-chip">MongoDB</li>
-                                <li class="skill-chip">Microsoft Access</li>
-                                <li class="skill-chip">SSMS</li>
-                                <li class="skill-chip">T-SQL / Azure SQL</li>
-                                <li class="skill-chip">Database Administration</li>
-                            </ul>
-                        </div>
-
-                        <div class="skill-group">
-                            <span class="muted-subtitle uppercase skill-group-label">Tools &amp; Practices</span>
-                            <ul class="skill-list">
-                                <li class="skill-chip">Git</li>
-                                <li class="skill-chip">Linux</li>
-                                <li class="skill-chip">Docker</li>
-                                <li class="skill-chip">JUnit</li>
-                                <li class="skill-chip">Maven</li>
-                                <li class="skill-chip">Gradle</li>
-                                <li class="skill-chip">Mobile Development</li>
-                                <li class="skill-chip">Networking</li>
-                                <li class="skill-chip">Systems Analysis &amp; Design</li>
-                                <li class="skill-chip">Design Patterns</li>
-                                <li class="skill-chip">Agile / SDLC</li>
-                            </ul>
-                        </div>
-
-                        <div class="skill-group">
-                            <span class="muted-subtitle uppercase skill-group-label">Soft Skills</span>
-                            <ul class="skill-list">
-                                <li class="skill-chip">Problem Solving</li>
-                                <li class="skill-chip">Attention to Detail</li>
-                                <li class="skill-chip">Written &amp; Oral Communication</li>
-                                <li class="skill-chip">Teamwork</li>
-                                <li class="skill-chip">Adaptability</li>
-                            </ul>
-                        </div>
-
-                        <p class="skills-assets">Fluent in English and Russian/Ukrainian · Available for full-time co-op work terms</p>
-                    </div>
-                </div>
-
-                <!-- Work experience column -->
-                <div class="experience">
-                    <h2 class="red-tag uppercase">Projects</h2>
-
-                    <div class="resume-row exp-item">
-                        <span class="exp-number">01</span>
-                        <div class="exp-body">
-                            <h3 class="exp-title">Order &amp; Inventory Platform</h3>
-                            <p class="exp-company">Personal Project · Java / Spring Boot / Oracle</p>
-                            <p class="exp-desc">Production-style B2B order and inventory backend
-                            with modular monolith architecture. Implemented: Oracle persistence
-                            with Flyway migrations, domain entities, JPA/Hibernate. In progress:
-                            JWT-based auth, order lifecycle logic, REST API layer.</p>
-                        </div>
-                        <span class="exp-date">2026 - Present</span>
-                    </div>
-
-                    <div class="resume-row exp-item">
-                        <span class="exp-number">02</span>
-                        <div class="exp-body">
-                            <h3 class="exp-title">Study Spot Finder</h3>
-                            <p class="exp-company">Academic Project · Node.js / Express / MongoDB</p>
-                            <p class="exp-desc">Group web app for discovering and rating study spots on an interactive map, with filters for outlets, Wi-Fi, hours, and A/C; built with session-based authentication, role-based access control, and user-submitted listings.</p>
-                        </div>
-                        <span class="exp-date">2026</span>
-                    </div>
-
-                    <div class="resume-row exp-item">
-                        <span class="exp-number">03</span>
-                        <div class="exp-body">
-                            <h3 class="exp-title">Telegram Media Downloader</h3>
-                            <p class="exp-company">Personal Project · Python / Telethon</p>
-                            <p class="exp-desc">CLI tool to download media from Telegram channels and chats. Supports filtering by type, date range and message offset, with session-based auth and .env configuration.</p>
-                        </div>
-                        <span class="exp-date">2023</span>
-                    </div>
-
-                    <div class="resume-row exp-item">
-                        <span class="exp-number">04</span>
-                        <div class="exp-body">
-                            <h3 class="exp-title">Portfolio Website</h3>
-                            <p class="exp-company">Academic Project · HTML / CSS / JS</p>
-                            <p class="exp-desc">Designed and built a responsive personal
-                            portfolio</p>
-                        </div>
-                        <span class="exp-date">2026</span>
-                    </div>
-
-                    <h2 class="red-tag uppercase resume-section-spaced">Work experience</h2>
-
-                    <div class="resume-row exp-item">
-                        <span class="exp-number">01</span>
-                        <div class="exp-body">
-                            <h3 class="exp-title">Line Cook</h3>
-                            <p class="exp-company">The Keg Steakhouse + Bar · Ottawa, ON</p>
-                            <p class="exp-desc">Working in a high-volume kitchen environment,
-                            managing prep and service under pressure with strict quality
-                            and consistency standards.</p>
-                        </div>
-                        <span class="exp-date">2023 - Present</span>
-                    </div>
-
-                    <div class="resume-row exp-item">
-                        <span class="exp-number">02</span>
-                        <div class="exp-body">
-                            <h3 class="exp-title">Remote Assistant</h3>
-                            <p class="exp-company">KiddyChef · On-call · Remote</p>
-                            <p class="exp-desc">Manage the Poster POS system remotely: updating inventory records, reviewing sales data, and troubleshooting issues as needed. Continued training and supporting new staff remotely after relocating, alongside ongoing administrative and basic bookkeeping support.</p>
-                        </div>
-                        <span class="exp-date">2022 - Present</span>
-                    </div>
-
-                    <div class="resume-row exp-item">
-                        <span class="exp-number">03</span>
-                        <div class="exp-body">
-                            <h3 class="exp-title">Administrator</h3>
-                            <p class="exp-company">KiddyChef · Permanent full-time · Dnipro, Ukraine</p>
-                            <p class="exp-desc">Operated the Poster POS system for daily sales, inventory, and order tracking. Handled scheduling, customer service, record keeping, and basic bookkeeping. Trained new staff taking over the role before relocating.</p>
-                        </div>
-                        <span class="exp-date">2021 - 2022</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== CONTACT BAR ===== -->
-        <section class="resume-contact">
+        <!-- ===== FACTS BAND ===== -->
+        <!-- Inverted, not flooded: dark surface background, coral numerals,
+             normal caption colour for labels. Nothing sits black-on-red
+             any more, so numbers and labels stay paired in one grid. -->
+        <section class="bs-facts reveal reveal-09" aria-label="Key facts">
             <div class="container">
-                <!-- Hidden heading, just here so screen readers get a label for this section -->
-                <h2 class="sr-only">Contact information</h2>
-                <ul class="resume-contact-list">
-                    <li class="contact-item">
-                        <span class="contact-icon">✉</span>
-                        <span>
-                            <span class="contact-label uppercase">Email</span>
-                            <a href="mailto:degtyarev.dmitry02@gmail.com" class="contact-value link-plain">degtyarev.dmitry02@gmail.com</a>
-                            <a href="mailto:deht0001@algonquinlive.com" class="contact-value link-plain">deht0001@algonquinlive.com</a>
-                        </span>
-                    </li>
-                    <li class="contact-item">
-                        <span class="contact-icon">☎</span>
-                        <span>
-                            <span class="contact-label uppercase">Phone</span>
-                            <a href="tel:+16136008353" class="contact-value link-plain">+1&nbsp;(613)&nbsp;600&#8209;8353</a>
-                        </span>
-                    </li>
-                    <li class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <span>
-                            <span class="contact-label uppercase">Location</span>
-                            <span class="contact-value">Ottawa, ON · Canada</span>
-                        </span>
-                    </li>
-                </ul>
+                <div class="resume-section bs-facts-grid">
+                    <div>
+                        <span class="bs-fact-num">3.9</span>
+                        <span class="bs-fact-label">GPA · Dean's list</span>
+                    </div>
+                    <div>
+                        <span class="bs-fact-num">04</span>
+                        <span class="bs-fact-label">Projects shipped</span>
+                    </div>
+                    <div>
+                        <span class="bs-fact-num">20+</span>
+                        <span class="bs-fact-label">Technologies</span>
+                    </div>
+                    <div>
+                        <span class="bs-fact-num">2027</span>
+                        <span class="bs-fact-label">Co-op · Winter</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== § 01 — SELECTED WORK ===== -->
+        <section class="bs-section reveal reveal-16">
+            <div class="container">
+                <div class="resume-section">
+                    <div class="bs-section-head">
+                        <h2 class="bs-section-label">§ 01 — Selected work</h2>
+                        <span class="bs-section-line"></span>
+                        <a href="projects.html" class="bs-section-link">Full case studies →</a>
+                    </div>
+
+                    <div class="bs-row">
+                        <span class="bs-row-num" aria-hidden="true">01</span>
+                        <div>
+                            <h3 class="bs-row-title">Order &amp; Inventory Platform</h3>
+                            <p class="bs-row-stack">Java / Spring Boot / Oracle / Docker</p>
+                            <p class="bs-row-desc">Production-style order and inventory backend with modular monolith architecture and Oracle persistence via Flyway/JPA.</p>
+                        </div>
+                        <span class="bs-row-date">2026 —<br>Present</span>
+                    </div>
+
+                    <div class="bs-row">
+                        <span class="bs-row-num" aria-hidden="true">02</span>
+                        <div>
+                            <h3 class="bs-row-title">Study Spot Finder</h3>
+                            <p class="bs-row-stack">Node.js / Express / MongoDB / Leaflet</p>
+                            <p class="bs-row-desc">Group web app for discovering and rating study spots on an interactive map, with session auth and role-based access control.</p>
+                        </div>
+                        <span class="bs-row-date">2026</span>
+                    </div>
+
+                    <div class="bs-row">
+                        <span class="bs-row-num" aria-hidden="true">03</span>
+                        <div>
+                            <h3 class="bs-row-title">Telegram Media Downloader</h3>
+                            <p class="bs-row-stack">Python / Telethon / CLI</p>
+                            <p class="bs-row-desc">CLI tool to bulk-download media from Telegram channels with type filters, date ranges and session-based auth.</p>
+                        </div>
+                        <span class="bs-row-date">2023</span>
+                    </div>
+
+                    <div class="bs-row">
+                        <span class="bs-row-num" aria-hidden="true">04</span>
+                        <div>
+                            <h3 class="bs-row-title">Portfolio Website</h3>
+                            <p class="bs-row-stack">HTML / CSS / JavaScript</p>
+                            <p class="bs-row-desc">Responsive personal portfolio site built with vanilla HTML, CSS and JavaScript.</p>
+                        </div>
+                        <span class="bs-row-date">2026</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== § 02 — EXPERIENCE ===== -->
+        <section class="bs-section reveal reveal-22">
+            <div class="container">
+                <div class="resume-section">
+                    <div class="bs-section-head">
+                        <h2 class="bs-section-label">§ 02 — Experience</h2>
+                        <span class="bs-section-line"></span>
+                    </div>
+
+                    <div class="bs-row">
+                        <span class="bs-row-num bs-row-num--ghost" aria-hidden="true">01</span>
+                        <div>
+                            <h3 class="bs-row-title">Line Cook</h3>
+                            <p class="bs-row-stack">The Keg Steakhouse + Bar · Ottawa, ON</p>
+                            <p class="bs-row-desc">High-volume kitchen environment, managing prep and service under pressure with strict quality and consistency standards.</p>
+                        </div>
+                        <span class="bs-row-date">2023 —<br>Present</span>
+                    </div>
+
+                    <div class="bs-row">
+                        <span class="bs-row-num bs-row-num--ghost" aria-hidden="true">02</span>
+                        <div>
+                            <h3 class="bs-row-title">Remote Assistant</h3>
+                            <p class="bs-row-stack">KiddyChef · On-call · Remote</p>
+                            <p class="bs-row-desc">Manage the Poster POS system remotely: inventory records, sales data and troubleshooting. Continued training new staff after relocating.</p>
+                        </div>
+                        <span class="bs-row-date">2022 —<br>Present</span>
+                    </div>
+
+                    <div class="bs-row">
+                        <span class="bs-row-num bs-row-num--ghost" aria-hidden="true">03</span>
+                        <div>
+                            <h3 class="bs-row-title">Administrator</h3>
+                            <p class="bs-row-stack">KiddyChef · Permanent full-time · Dnipro, Ukraine</p>
+                            <p class="bs-row-desc">Operated the Poster POS system for daily sales, inventory and order tracking. Handled scheduling, record keeping and basic bookkeeping.</p>
+                        </div>
+                        <span class="bs-row-date">2021 —<br>2022</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== § 03 — EDUCATION ===== -->
+        <section class="bs-section reveal reveal-28">
+            <div class="container">
+                <div class="resume-section">
+                    <div class="bs-section-head">
+                        <h2 class="bs-section-label">§ 03 — Education</h2>
+                        <span class="bs-section-line"></span>
+                    </div>
+
+                    <div class="bs-edu-primary">
+                        <div>
+                            <h3 class="bs-edu-title">Computer Programming, Diploma (Co-op)</h3>
+                            <p class="bs-edu-institution">Algonquin College · Ottawa, ON · GPA 3.9 · Dean's Honour List</p>
+                            <p class="bs-edu-coursework">Web Programming / Design Patterns / Database Systems / Systems Analysis &amp; Design / Object-Oriented Programming (Java) / Enterprise Application Programming</p>
+                        </div>
+                        <span class="bs-edu-date">2026 —<br>Dec 2027</span>
+                    </div>
+
+                    <div class="bs-edu-compact">
+                        <div class="bs-edu-compact-head">
+                            <h3 class="bs-edu-compact-title">Practical React</h3>
+                            <span class="bs-edu-compact-institution">SoftServe Academy · Online</span>
+                        </div>
+                        <span class="bs-edu-date">2023</span>
+                    </div>
+
+                    <div class="bs-edu-compact">
+                        <div class="bs-edu-compact-head">
+                            <h3 class="bs-edu-compact-title">Frontend Development</h3>
+                            <span class="bs-edu-compact-institution">SoftServe IT Academy · Online</span>
+                        </div>
+                        <span class="bs-edu-date">2022</span>
+                    </div>
+
+                    <div class="bs-edu-compact">
+                        <div class="bs-edu-compact-head">
+                            <h3 class="bs-edu-compact-title">Bachelor's, Marketing</h3>
+                            <span class="bs-edu-compact-institution">Alfred Nobel University · Dnipro, Ukraine</span>
+                        </div>
+                        <span class="bs-edu-date">2021 —<br>2024</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== § 04 — STACK (colophon) ===== -->
+        <section class="bs-colophon reveal reveal-34">
+            <div class="container">
+                <div class="resume-section">
+                    <div class="bs-section-head">
+                        <h2 class="bs-section-label">§ 04 — Stack</h2>
+                        <span class="bs-section-line"></span>
+                    </div>
+
+                    <div class="bs-colophon-grid">
+                        <div class="bs-colophon-row">
+                            <span class="bs-colophon-label">Languages</span>
+                            <span class="bs-colophon-values">JavaScript / ES6+ · Java · Python</span>
+                        </div>
+                        <div class="bs-colophon-row">
+                            <span class="bs-colophon-label">Frameworks</span>
+                            <span class="bs-colophon-values">React · Redux · Node.js · Express.js · Mongoose · Spring Boot</span>
+                        </div>
+                        <div class="bs-colophon-row">
+                            <span class="bs-colophon-label">Databases</span>
+                            <span class="bs-colophon-values">PostgreSQL · MySQL · Oracle · SQL Server · MongoDB · Microsoft Access · SSMS · T-SQL / Azure SQL</span>
+                        </div>
+                        <div class="bs-colophon-row">
+                            <span class="bs-colophon-label">Tools</span>
+                            <span class="bs-colophon-values">Git · Linux · Docker · JUnit · Maven · Gradle · Agile / SDLC · Networking · Mobile Development · Database Administration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AVAILABILITY STRIP ===== -->
+        <section class="resume-availability">
+            <div class="container">
+                <p class="resume-availability-text resume-section">
+                    <span class="resume-availability-star">✦</span>
+                    <span>Fluent in English and Russian/Ukrainian</span>
+                    <span class="bs-availability-divider" aria-hidden="true"></span>
+                    <span>Available for co-op · Winter 2027 (January)</span>
+                </p>
             </div>
         </section>
 

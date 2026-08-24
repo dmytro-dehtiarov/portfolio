@@ -11,7 +11,9 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/ProjectLanding.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800&family=Sacramento&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -51,14 +53,16 @@
 
     <main>
 
+        <div class="page-grain" aria-hidden="true"></div>
+
         <section class="projects">
             <div class="container">
                 <!-- Hidden heading, just here so screen readers get a page title -->
                 <h1 class="sr-only">Projects</h1>
 
-                <div class="projects-top">
+                <div class="projects-top reveal">
                     <span class="red-tag uppercase">Selected projects</span>
-                    <span class="muted-subtitle uppercase">Dmytro Dehtiarov · 2023 - 2026</span>
+                    <span class="muted-subtitle uppercase">Dmytro Dehtiarov · 2023 – Present</span>
                 </div>
 
                 <!--
@@ -67,7 +71,7 @@
                 -->
 
                 <!-- Slide 1: Order Platform -->
-                <article class="project active">
+                <article class="project active reveal reveal-08">
                     <div class="project-media">
                         <div class="project-image">
                             <img src="images/OrderInventoryPlatform.png" alt="Order Inventory Platform" class="project-screenshot">
@@ -75,8 +79,8 @@
                     </div>
                     <div class="project-info">
                         <span class="project-num-bg">01</span>
-                        <span class="muted-subtitle uppercase project-year">Present · Personal</span>
-                        <h2 class="project-title uppercase"><a href="https://github.com/dmytro-dehtiarov/order-inventory-platform" target="_blank" rel="noopener noreferrer">Order Platform</a></h2>
+                        <span class="muted-subtitle uppercase project-year">2026 – Present · Personal</span>
+                        <h2 class="project-title uppercase"><a href="https://github.com/dmytro-dehtiarov/order-inventory-platform" target="_blank" rel="noopener noreferrer">Order &amp; Inventory Platform</a></h2>
                         <p class="project-subtitle uppercase">Backend Management System</p>
                         <p class="project-desc">Production-style order and inventory backend with modular monolith architecture, Oracle persistence via Flyway/JPA. JWT auth and order lifecycle logic in progress.</p>
                         <ul class="skill-list">
@@ -89,7 +93,7 @@
                 </article>
 
                 <!-- Slide 2: Study Spot Finder -->
-                <article class="project">
+                <article class="project reveal reveal-08">
                     <div class="project-media">
                         <div class="project-image">
                             <img src="images/StudySpotFinder.png" alt="Study Spot Finder" class="project-screenshot">
@@ -110,15 +114,37 @@
                     </div>
                 </article>
 
-                <!-- Slide 3: Portfolio Website -->
-                <article class="project">
+                <!-- Slide 3: Telegram Media Downloader -->
+                <article class="project reveal reveal-08">
+                    <div class="project-media">
+                        <div class="project-image">
+                            <img src="images/MediaDownloader.png" alt="Telegram Media Downloader" class="project-screenshot">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num-bg">03</span>
+                        <span class="muted-subtitle uppercase project-year">2023 · Personal</span>
+                        <h2 class="project-title uppercase"><a href="https://github.com/dmytro-dehtiarov/telegram-media-downloader" target="_blank" rel="noopener noreferrer">Telegram Media Downloader</a></h2>
+                        <p class="project-subtitle uppercase">CLI Media Tool</p>
+                        <p class="project-desc">CLI tool to download videos, photos and documents from Telegram channels. Supports type filters, date ranges and session-based auth</p>
+                        <ul class="skill-list">
+                            <li class="skill-chip">Python</li>
+                            <li class="skill-chip">Telethon</li>
+                            <li class="skill-chip">CLI</li>
+                            <li class="skill-chip">API</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Slide 4: Portfolio Website -->
+                <article class="project reveal reveal-08">
                     <div class="project-media">
                         <div class="project-image">
                             <img src="images/ProjectLanding.png" alt="Project Landing" class="project-screenshot">
                         </div>
                     </div>
                     <div class="project-info">
-                        <span class="project-num-bg">03</span>
+                        <span class="project-num-bg">04</span>
                         <span class="muted-subtitle uppercase project-year">2026 · Academic</span>
                         <h2 class="project-title uppercase"><a href="https://github.com/dmytro-dehtiarov/portfolio" target="_blank" rel="noopener noreferrer">Portfolio Website</a></h2>
                         <p class="project-subtitle uppercase">Personal Showcase</p>
@@ -130,32 +156,10 @@
                         </ul>
                     </div>
                 </article>
-
-                <!-- Slide 4: Media Downloader -->
-                <article class="project">
-                    <div class="project-media">
-                        <div class="project-image">
-                            <img src="images/MediaDownloader.png" alt="Telegram Media Downloader" class="project-screenshot">
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <span class="project-num-bg">04</span>
-                        <span class="muted-subtitle uppercase project-year">2023 · Personal</span>
-                        <h2 class="project-title uppercase"><a href="https://github.com/dmytro-dehtiarov/telegram-media-downloader" target="_blank" rel="noopener noreferrer">Media Downloader</a></h2>
-                        <p class="project-subtitle uppercase">CLI Media Tool</p>
-                        <p class="project-desc">CLI tool to download videos, photos and documents from Telegram channels. Supports type filters, date ranges and session-based auth</p>
-                        <ul class="skill-list">
-                            <li class="skill-chip">Python</li>
-                            <li class="skill-chip">Telethon</li>
-                            <li class="skill-chip">CLI</li>
-                            <li class="skill-chip">API</li>
-                        </ul>
-                    </div>
-                </article>
             </div>
 
             <!-- Prev / next controls + slide counter -->
-            <div class="projects-pager">
+            <div class="projects-pager reveal reveal-16">
                 <div class="container projects-pager-inner">
                     <button type="button" class="pager-btn" id="prevBtn" aria-label="Previous project">
                         <span class="pager-arrow">&lt;</span>
@@ -164,7 +168,7 @@
 
                     <div class="pager-track">
                         <span class="pager-current" id="pagerCurrent">01</span>
-                        <span class="section-label-line"></span>
+                        <span class="pager-sep">/</span>
                         <span class="pager-total">04</span>
                     </div>
 

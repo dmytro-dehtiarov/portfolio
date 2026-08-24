@@ -11,6 +11,7 @@
     --color-background: #0a0a0a;
     --color-background-nav: rgba(10, 10, 10, 0.85);
     --color-surface: #131010;
+    --color-surface-alt: #0f0d0d;
     --color-input-fill: #161111;
     --color-accent: #e8362d;
     --color-accent-hover: #ff4a40;
@@ -23,10 +24,16 @@
     --color-hero-word: #1a0808;
     --color-chip-text: #cfc7c1;
 
+    /* Broadsheet (resume v5) additions */
+    --color-border-strong: rgba(255, 255, 255, 0.16);
+    --color-rule-heavy: #f2ede9;
+    --color-numeral-ghost: rgba(242, 237, 233, 0.32);
+
     /* Fonts */
     --font-display: 'Anton', sans-serif;
     --font-body: 'Archivo', sans-serif;
     --font-accent: 'Sacramento', cursive;
+    --font-mono: 'Space Mono', monospace;
 
     /* Anton — Display/Headings */
     --fs-name: 118px;
@@ -54,6 +61,25 @@
     /* Sacramento — Script */
     --fs-script: 54px;
 
+    /* Space Mono — machine-readable metadata */
+    --fs-mono-meta: 13px;
+    --fs-mono-label: 12px;
+
+    /* Broadsheet (resume v5) — Anton */
+    --fs-broadsheet-title: 212px;
+    --fs-row-numeral: 112px;
+    --fs-fact-number: 76px;
+    --fs-row-title: 36px;
+
+    /* Broadsheet (resume v5) — Archivo */
+    --fs-name-lockup: 26px;
+    --fs-entry-title: 20px;
+    --fs-summary-lead: 17px;
+    --fs-summary-sub: 15px;
+    --fs-row-desc: 15px;
+    --fs-body-alt: 14px;
+    --fs-footer-note: 13px;
+
     /* Letter spacing */
     --ls-display: -1.5px;
     --ls-label: 2px;
@@ -73,6 +99,25 @@
     /* Gaps */
     --gap-hobbies: 18px;
     --gap-projects: 56px;
+
+    /* Broadsheet (resume v5) — layout. The left gutter is .container's own
+       64px padding + .resume-section's 40px = 104px; the rail rides on the
+       same edge via .container::before, left: var(--container-padding).
+       No separate gutter/rail tokens needed. */
+    --space-section-top: 54px;
+    --space-row-y: 26px;
+    --space-row-gap: 24px;
+    --space-title-gap: 56px;
+
+    /* Broadsheet (resume v5) — borders, radii, effects */
+    --radius-control: 6px;
+    --rule-hairline: 1px solid rgba(255, 255, 255, 0.12);
+    --rule-section: 1px solid rgba(255, 255, 255, 0.16);
+    --rule-open: 3px solid #f2ede9;
+    --stroke-numeral: 1.5px;
+    --ease-reveal: cubic-bezier(.2, .7, .2, 1);
+    --dur-reveal: .7s;
+    --dur-hover: .2s;
 }
 
 /* ===== Reset ===== */
@@ -82,12 +127,22 @@
     box-sizing: border-box;
 }
 
+/* Matches body's background on the canvas itself, so short pages (contact,
+   404) don't reveal a different colour than long pages (resume) in the
+   overscroll/rubber-band area, or before body's own box has painted. */
+html {
+    background-color: var(--color-background);
+}
+
 body {
     background-color: var(--color-background);
+    min-height: 100vh;
     color: var(--color-text-body);
     font-family: var(--font-body);
     font-weight: 400;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===== Utility ===== */
@@ -101,6 +156,10 @@ body {
     text-decoration: none;
     cursor: pointer;
     transition: color 0.2s ease;
+}
+
+.link-underline {
+    text-decoration: underline;
 }
 
 .link-plain:hover {
@@ -146,7 +205,22 @@ header {
 }
 
 main {
+    position: relative;
+    max-width: var(--container-max);
+    margin-inline: auto;
     padding-top: var(--header-height);
+}
+
+/* Print-grain texture, decorative, ignores pointer events. First child of
+   <main> on every page; main's own position:relative above gives it its
+   positioning context, so it covers exactly that page's content box. */
+.page-grain {
+    position: absolute;
+    inset: 0;
+    z-index: 9;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
 }
 
 nav {
@@ -228,6 +302,7 @@ nav {
 }
 
 .nav-num {
+    font-family: var(--font-mono);
     color: var(--color-accent);
     font-weight: 700;
     font-size: var(--fs-nav-num);
@@ -266,6 +341,8 @@ nav {
     border: 1px solid var(--color-border);
     border-radius: 4px;
     padding: 6px 12px;
+    font-family: var(--font-body);
+    font-weight: 800;
     font-size: var(--fs-nav);
     transition: border-color 0.2s ease, color 0.2s ease;
 }
@@ -523,18 +600,16 @@ nav {
     background: var(--color-input-fill);
     border: 1px solid var(--color-border);
     color: var(--color-chip-text);
-    padding: 8px 16px;
+    padding: 8px 13px;
     border-radius: 6px;
-    font-size: var(--fs-label);
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-meta);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--ls-label);
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    transition: border-color 0.2s ease;
 }
 
 .skill-chip:hover {
     border-color: var(--color-accent);
-    transform: translateY(-4px);
 }
 
 /* ===== Hobbies Section ===== */
@@ -594,14 +669,20 @@ nav {
     line-height: 1.5;
 }
 
-/* ===== Page Title ===== */
-/* Generic heading block for interior pages that don't have a hero section
-   (e.g. the "resume" title on resume.html). Kept separate from .hero-content /
-   .hero-name so pages outside the hero don't borrow hero-specific class names. */
+/* ===== Page Title (404) ===== */
+/* Generic heading block for interior pages without a hero section — currently
+   only 404.html. (The resume page has its own Broadsheet title block below.) */
 .page-title-block {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
+}
+
+.page-title-block p {
+    margin-top: var(--space-sm);
+    font-size: var(--fs-body);
+    color: var(--color-text-body);
+    max-width: 480px;
 }
 
 .page-title {
@@ -613,167 +694,17 @@ nav {
     line-height: 0.9;
 }
 
-/* ===== Resume Page ===== */
-.resume {
-    padding: var(--space-lg) 0 var(--space-lg);
-}
-
-.resume .container {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: var(--space-lg);
-}
-
-.resume-content {
-    border-top: 1px solid var(--color-border);
+main > section.resume {
     padding: var(--space-xl) 0;
 }
 
 /* ===== Split Grid ===== */
-/* Generic 2-column layout (used by the resume education/experience columns
-   and the contact form/side-panel layout — same structure, different content). */
+/* Generic 2-column layout, used by the contact form/side-panel layout. */
 .split-grid {
     display: grid;
     grid-template-columns: 1fr 1.05fr;
     gap: var(--space-lg);
-}
-
-.education {
-    border-right: 1px solid var(--color-border);
-}
-
-.education > .red-tag,
-.experience > .red-tag {
-    display: block;
-    margin-bottom: var(--space-sm);
-}
-
-.skills-block {
-    margin-top: var(--space-lg);
-}
-
-.resume-section-spaced {
-    margin-top: var(--space-lg);
-}
-
-.skills-block > .red-tag {
-    display: block;
-    margin-bottom: var(--space-sm);
-}
-
-/* Sub-groups within Skills (Languages, Frameworks, Databases, etc.) —
-   .skill-group-label reuses .muted-subtitle's generic caption style. */
-.skill-group {
-    margin-top: var(--space-sm);
-}
-
-.skill-group:first-child {
-    margin-top: 0;
-}
-
-.skill-group-label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.skills-assets {
-    margin-top: var(--space-sm);
-    font-size: var(--fs-body-sm);
-    color: var(--color-text-body);
-    line-height: 1.5;
-}
-
-/* ===== Resume Rows (education / experience items) ===== */
-.resume-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--space-md);
-    padding: var(--space-md) 0;
-}
-
-/* Adds a divider between rows, but skips the first one */
-.resume-row + .resume-row {
-    border-top: 1px solid var(--color-border);
-}
-
-.edu-title,
-.exp-title {
-    font-size: var(--fs-card-heading);
-    font-weight: 700;
-    color: var(--color-text-primary);
-}
-
-.edu-institution {
-    font-size: var(--fs-body-sm);
-    color: var(--color-text-muted);
-    margin-top: 4px;
-}
-
-.edu-coursework {
-    font-size: var(--fs-caption);
-    color: var(--color-text-body);
-    line-height: 1.5;
-    margin-top: 8px;
-    max-width: 480px;
-}
-
-.edu-year,
-.exp-date {
-    font-size: var(--fs-body-sm);
-    font-weight: 700;
-    color: var(--color-accent);
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding-right: var(--space-sm);
-}
-
-.exp-date {
-    font-weight: 400;
-    color: var(--color-text-muted);
-}
-
-.exp-number {
-    font-family: var(--font-display);
-    font-size: var(--fs-index-num);
-    color: var(--color-accent);
-    line-height: 1;
-    letter-spacing: var(--ls-display);
-    flex-shrink: 0;
-}
-
-.exp-body {
-    flex: 1;
-}
-
-.exp-company {
-    font-size: var(--fs-body-sm);
-    font-weight: 600;
-    color: var(--color-accent);
-    margin-top: 2px;
-}
-
-.exp-desc {
-    font-size: var(--fs-body-sm);
-    color: var(--color-text-body);
-    line-height: 1.5;
-    margin-top: 8px;
-    max-width: 480px;
-}
-
-/* ===== Resume Contact Bar ===== */
-.resume-contact {
-    border-top: 1px solid var(--color-border);
-    padding: var(--space-md) 0;
-}
-
-.resume-contact-list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    gap: var(--space-lg);
+    align-items: stretch;
 }
 
 .contact-item {
@@ -791,8 +722,12 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
     flex-shrink: 0;
+}
+
+.contact-icon svg {
+    width: 18px;
+    height: 18px;
 }
 
 .contact-label {
@@ -806,9 +741,21 @@ nav {
 
 .contact-value {
     display: block;
-    font-size: var(--fs-body-sm);
+    font-size: 14px;
     font-weight: 700;
     color: var(--color-text-primary);
+}
+
+.contact-value-secondary {
+    font-size: var(--fs-caption);
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+.contact-value-tag {
+    font-family: var(--font-body);
+    text-transform: uppercase;
 }
 
 /* ===== Projects Page ===== */
@@ -875,11 +822,11 @@ nav {
 .project-num-bg {
     position: absolute;
     top: -20px;
-    right: 0;
+    right: -28px;
     z-index: 0;
     font-family: var(--font-display);
     font-size: var(--fs-project-num);
-    color: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.045);
     line-height: 1;
     pointer-events: none;
     user-select: none;
@@ -890,6 +837,9 @@ nav {
     z-index: 1;
     display: block;
     margin-bottom: var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-label);
+    color: var(--color-text-body);
 }
 
 .project-title {
@@ -995,23 +945,23 @@ nav {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    font-family: var(--font-display);
+    font-family: var(--font-mono);
 }
 
 .pager-current {
-    font-size: var(--fs-pager-num);
-    color: var(--color-accent);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-accent-hover);
 }
 
 .pager-total {
-    font-size: var(--fs-pager-num);
+    font-size: 14px;
     color: var(--color-text-muted);
 }
 
-.pager-track .section-label-line {
-    flex: none;
-    width: 60px;
-    min-width: 0;
+.pager-sep {
+    font-size: 14px;
+    color: #8c837c;
 }
 
 /* ===== Contact Page ===== */
@@ -1120,8 +1070,9 @@ nav {
     color: var(--color-text-primary);
     border: none;
     border-radius: 6px;
+    font-family: var(--font-body);
     font-size: var(--fs-label);
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: var(--ls-label);
     cursor: pointer;
@@ -1180,6 +1131,565 @@ nav {
     border-top: 1px solid var(--color-border);
 }
 
+/* ===== Resume — Broadsheet (v5) ===== */
+/* Header and footer are untouched here on purpose — they stay on the site's
+   normal symmetric 64px .container padding, same as every other page. The
+   body's own asymmetric gutter (104px/64px) comes entirely from
+   .resume-section below, layered on top of .container's native padding. */
+
+/* Availability strip: outer section only carries the border rule and
+   vertical padding; .container + .resume-section give it the same gutter
+   as the rest of the body. */
+.resume-availability {
+    border-top: var(--rule-hairline);
+    padding: var(--space-md) 0;
+}
+
+.resume-availability-text {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-chip-text);
+}
+
+.resume-availability-star {
+    color: var(--color-accent);
+    font-size: 15px;
+}
+
+.bs-availability-divider {
+    width: 1px;
+    height: 16px;
+    background: var(--color-border-strong);
+}
+
+/* Rotated edge label. A real element (not generated content) so it stays
+   cleanly out of the accessibility tree via aria-hidden. Anchored directly
+   to <main> (.resume-broadsheet), which is capped/centered at the same
+   1440px box as every .container below, so left:22px sits just left of the
+   rail line drawn per-section by .container::before. */
+.broadsheet-rail-label {
+    position: absolute;
+    top: 360px;
+    left: 22px;
+    z-index: 3;
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-label);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-text-body);
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    white-space: nowrap;
+}
+
+/* Vertical rail: drawn as a hairline on each body section's own .container,
+   at left: var(--container-padding) — the exact edge the header/footer nav
+   already sit on. No absolutely-positioned rail element, no separate rail
+   token; it inherits the site's existing --container-padding breakpoints
+   (1024px/768px) for free. */
+.page-resume main .container {
+    position: relative;
+}
+
+.page-resume main .container::before {
+    content: '';
+    position: absolute;
+    left: var(--container-padding);
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--color-border);
+}
+
+/* The spec's 104px left gutter = .container's own 64px padding + this 40px.
+   Right stays at the container's native padding (no separate right-gutter
+   token). */
+.page-resume .resume-section {
+    padding-left: 40px;
+}
+
+.reveal {
+    animation: cc-rise var(--dur-reveal) var(--ease-reveal) both;
+}
+
+/* Stagger steps for the choreographed reveal, used across index.html,
+   resume.html, projects.html and contact.html so the delay doesn't have to
+   be set inline per element. Named by their delay value, not by position,
+   since different pages use different subsets of the sequence. */
+.reveal-08 { animation-delay: .08s; }
+.reveal-09 { animation-delay: .09s; }
+.reveal-16 { animation-delay: .16s; }
+.reveal-22 { animation-delay: .22s; }
+.reveal-28 { animation-delay: .28s; }
+.reveal-34 { animation-delay: .34s; }
+
+@keyframes cc-rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; }
+}
+
+/* Title block */
+.bs-title {
+    position: relative;
+    padding: 52px 0 0;
+}
+
+.bs-kicker {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-label);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--color-accent-hover);
+}
+
+.bs-title-grid {
+    display: grid;
+    grid-template-columns: 1fr 470px;
+    gap: var(--space-title-gap);
+    align-items: start;
+    margin-top: 22px;
+}
+
+.bs-headline {
+    font-family: var(--font-display);
+    font-size: var(--fs-broadsheet-title);
+    line-height: .76;
+    letter-spacing: var(--ls-display);
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+}
+
+.bs-name {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: var(--fs-name-lockup);
+    letter-spacing: 9px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-top: -4px;
+}
+
+.bs-summary {
+    padding-top: 14px;
+}
+
+.bs-summary p {
+    font-size: var(--fs-summary-lead);
+    line-height: 1.6;
+    color: var(--color-chip-text);
+}
+
+.bs-summary p + p {
+    font-size: var(--fs-summary-sub);
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    margin-top: 18px;
+}
+
+/* Facts band — inverted, not flooded. Small bold text does not survive
+   sitting directly on saturated red at any weight/size worth using, so
+   nothing here is black-or-near-black-on-coral any more: dark surface
+   background, coral numerals, the site's normal caption colour for the
+   labels. The colour event that the flood used to carry moves to the
+   border-top instead — still one coral mark, just not painted under text.
+   Same pattern as .resume-skills-section/.bs-colophon: outer section
+   carries the background full-bleed, .container/.resume-section inside
+   holds the grid. */
+.bs-facts {
+    background: var(--color-surface-alt);
+    border-top: 3px solid var(--color-accent);
+    border-bottom: var(--rule-hairline);
+    margin-top: 46px;
+    padding: 34px 0;
+}
+
+.bs-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.bs-fact-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--fs-fact-number);
+    line-height: .9;
+    letter-spacing: -3px;
+    color: var(--color-accent);
+}
+
+.bs-fact-label {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--color-text-body);
+    margin-top: 5px;
+}
+
+/* Section headers: § 01 — Selected work, etc. */
+.bs-section {
+    padding: var(--space-section-top) 0 0;
+}
+
+.bs-section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 6px;
+}
+
+.bs-section-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-label);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--color-accent-hover);
+    white-space: nowrap;
+}
+
+.bs-section-line {
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--color-border-strong);
+}
+
+.bs-section-link {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-label);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--color-text-body);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color var(--dur-hover) ease;
+}
+
+.bs-section-link:hover {
+    color: var(--color-accent-hover);
+}
+
+/* Project / experience rows — outlined numerals */
+.bs-row {
+    display: grid;
+    grid-template-columns: 190px 1fr 150px;
+    gap: var(--space-row-gap);
+    align-items: start;
+    padding: var(--space-row-y) 0;
+    border-top: var(--rule-hairline);
+}
+
+.bs-row:first-child {
+    border-top: var(--rule-open);
+}
+
+.bs-row:last-child {
+    border-bottom: var(--rule-hairline);
+}
+
+.bs-row-num {
+    font-family: var(--font-display);
+    font-size: var(--fs-row-numeral);
+    line-height: .8;
+    letter-spacing: -4px;
+    color: var(--color-accent); /* filled fallback */
+}
+
+@supports (-webkit-text-stroke: 1px red) {
+    .bs-row-num {
+        color: transparent;
+        -webkit-text-stroke: var(--stroke-numeral) var(--color-accent);
+    }
+
+    .bs-row-num--ghost {
+        -webkit-text-stroke-color: var(--color-numeral-ghost);
+    }
+}
+
+.bs-row-num--ghost {
+    color: var(--color-numeral-ghost);
+}
+
+.bs-row-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-row-title);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+}
+
+.bs-row-stack {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-meta);
+    color: var(--color-text-body);
+    margin-top: 9px;
+}
+
+.bs-row-desc {
+    font-size: var(--fs-row-desc);
+    line-height: 1.6;
+    color: var(--color-text-body);
+    margin-top: 12px;
+    max-width: 660px;
+}
+
+.bs-row-date {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-meta);
+    color: var(--color-text-body);
+    text-align: right;
+}
+
+/* Education */
+.bs-edu-primary {
+    padding: 24px 0;
+    border-top: var(--rule-open);
+}
+
+.bs-edu-primary,
+.bs-edu-compact {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    gap: var(--space-row-gap);
+    align-items: start;
+}
+
+.bs-edu-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-row-title);
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+}
+
+.bs-edu-institution {
+    font-size: var(--fs-body-alt);
+    color: var(--color-text-body);
+    margin-top: 9px;
+}
+
+.bs-edu-coursework {
+    font-size: var(--fs-body-alt);
+    line-height: 1.8;
+    color: var(--color-chip-text);
+    margin-top: 14px;
+    max-width: 900px;
+}
+
+.bs-edu-compact {
+    padding: 20px 0;
+    border-top: var(--rule-section);
+}
+
+.bs-edu-compact:last-child {
+    border-bottom: var(--rule-section);
+}
+
+.bs-edu-compact-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.bs-edu-compact-title {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: var(--fs-entry-title);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+}
+
+.bs-edu-compact-institution {
+    font-size: var(--fs-body-alt);
+    color: var(--color-text-body);
+}
+
+.bs-edu-date {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-meta);
+    color: var(--color-text-body);
+    text-align: right;
+}
+
+/* § 04 — Stack: colophon */
+.bs-colophon {
+    margin-top: 54px;
+    background: var(--color-surface-alt);
+    border-top: var(--rule-section);
+    padding: 40px 0 44px;
+}
+
+.bs-colophon .bs-section-head {
+    margin-bottom: 26px;
+}
+
+.bs-colophon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px 64px;
+}
+
+.bs-colophon-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    align-items: baseline;
+    padding-bottom: 20px;
+    border-bottom: var(--rule-hairline);
+}
+
+.bs-colophon-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-label);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--color-text-body);
+}
+
+.bs-colophon-values {
+    font-size: var(--fs-body-alt);
+    line-height: 1.8;
+    color: var(--color-text-primary);
+}
+
+/* Focus states */
+body.page-resume a:focus-visible,
+body.page-resume button:focus-visible {
+    outline: 2px solid var(--color-accent-hover);
+    outline-offset: 3px;
+}
+
+/* ===== Broadsheet responsive =====
+   The gutter itself needs no breakpoints anymore — .container's own
+   padding already flexes at the site's existing 1024px/768px breakpoints
+   (see the "Tablet" / "Mobile" rules below), and .resume-section's 40px
+   stays constant on top of it. What's left here is just the broadsheet's
+   own type/grid scaling. */
+@media (max-width: 1200px) {
+    .bs-headline {
+        font-size: clamp(96px, 13vw, 212px);
+    }
+
+    .bs-title-grid {
+        grid-template-columns: 1fr 380px;
+        gap: 40px;
+    }
+
+    .bs-row {
+        grid-template-columns: 150px 1fr 130px;
+    }
+
+    .bs-row-num {
+        font-size: 88px;
+    }
+}
+
+@media (max-width: 900px) {
+    .page-resume main .container::before,
+    .broadsheet-rail-label {
+        display: none;
+    }
+
+    .bs-title-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bs-summary {
+        margin-top: 32px;
+        padding-top: 0;
+    }
+
+    .bs-facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 32px;
+    }
+
+    .bs-colophon-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bs-row {
+        grid-template-columns: 100px 1fr;
+    }
+
+    .bs-row-date {
+        grid-column: 2;
+        text-align: left;
+        margin-top: 8px;
+    }
+
+    .bs-edu-primary,
+    .bs-edu-compact {
+        grid-template-columns: 1fr;
+    }
+
+    .bs-edu-date {
+        text-align: left;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 560px) {
+    .bs-headline {
+        font-size: clamp(56px, 17vw, 96px);
+    }
+
+    .bs-name {
+        font-size: 18px;
+        letter-spacing: 5px;
+    }
+
+    .bs-facts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bs-fact-num {
+        font-size: 56px;
+    }
+
+    .bs-row-num {
+        font-size: 64px;
+        color: var(--color-accent);
+    }
+
+    .bs-row-num--ghost {
+        color: var(--color-numeral-ghost);
+    }
+
+    @supports (-webkit-text-stroke: 1px red) {
+        .bs-row-num {
+            -webkit-text-stroke: 0;
+            color: var(--color-accent);
+        }
+
+        .bs-row-num--ghost {
+            color: var(--color-numeral-ghost);
+        }
+    }
+
+    .bs-summary p {
+        font-size: 16px;
+    }
+
+    .bs-summary p + p {
+        font-size: 14px;
+    }
+}
+
 /* ===== Footer ===== */
 footer {
     border-top: 1px solid var(--color-border);
@@ -1205,11 +1715,12 @@ footer .container {
 }
 
 .footer-links a {
-    font-size: var(--fs-caption);
+    font-family: var(--font-mono);
+    font-size: var(--fs-mono-label);
     color: var(--color-text-body);
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: var(--ls-label);
+    letter-spacing: 1.8px;
     transition: color 0.2s ease;
 }
 
@@ -1299,16 +1810,6 @@ footer .container {
 
     .split-grid {
         grid-template-columns: 1fr;
-    }
-
-    .page-title {
-        font-size: var(--fs-name);
-    }
-
-    .education {
-        border-right: none;
-        border-bottom: 1px solid var(--color-border);
-        padding-bottom: var(--space-lg);
     }
 
     .project.active {
