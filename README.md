@@ -24,7 +24,7 @@ A responsive personal portfolio built with plain HTML, CSS and JavaScript. Five 
 - CSS3 (custom properties, Grid, Flexbox, `backdrop-filter`, `aspect-ratio`)
 - Vanilla JavaScript (ES6+, no dependencies)
 - [Formspree](https://formspree.io) for contact form delivery
-- Google Fonts: Anton, Archivo, Sacramento
+- Google Fonts: Anton, Archivo, Space Mono
 
 ## Project structure
 

@@ -1,38 +1,34 @@
 :root {
-    /* Tells the browser this page is intentionally dark-themed, so browsers
-       with a "force dark mode on websites" feature (Opera, Chrome/Edge on
-       Android, Samsung Internet, etc.) don't apply their own color-inversion
-       filter on top of it — that double-processing is what breaks the
-       colors/contrast in Opera. Also themes native form controls/scrollbars
-       to match. */
     color-scheme: dark;
 
-    /* Colors */
-    --color-background: #0a0a0a;
-    --color-background-nav: rgba(10, 10, 10, 0.85);
-    --color-surface: #131010;
-    --color-surface-alt: #0f0d0d;
-    --color-input-fill: #161111;
-    --color-accent: #e8362d;
-    --color-accent-hover: #ff4a40;
-    --color-success: #4caf80;
-    --color-text-primary: #f2ede9;
-    --color-text-body: #a89f9b;
-    --color-text-muted: #8c837c;
-    --color-border: rgba(255, 255, 255, 0.12);
-    --color-watermark: rgba(232, 54, 45, 0.16);
-    --color-hero-word: #1a0808;
-    --color-chip-text: #cfc7c1;
+    /* Colors — "Warm Dark" palette, honey accent, WCAG AA verified for
+       text-primary/text-body/text-muted/accent against both
+       --color-background and --color-surface. */
+    --color-background: #1e1a17;
+    --color-background-nav: rgba(30, 26, 23, 0.9);
+    --color-surface: #292420;
+    --color-surface-alt: #322c27;
+    --color-input-fill: #322c27;
+    --color-accent: #e9b14c;
+    --color-accent-hover: #f2c169;
+    --color-success: #9cc5a1;
+    --color-error: #d98c7a;
+    --color-text-primary: #f5f0e8;
+    --color-text-body: #d6cec3;
+    --color-text-muted: #a2988c;
+    --color-border: #3b342e;
+    --color-watermark: rgba(233, 177, 76, 0.10);
+    --color-hero-word: #262220;
+    --color-chip-text: #d8cec2;
 
-    /* Broadsheet (resume v5) additions */
-    --color-border-strong: rgba(255, 255, 255, 0.16);
-    --color-rule-heavy: #f2ede9;
-    --color-numeral-ghost: rgba(242, 237, 233, 0.32);
+    /* Broadsheet additions */
+    --color-border-strong: #4a423a;
+    --color-rule-heavy: #f5f0e8;
+    --color-numeral-ghost: rgba(245, 240, 232, 0.22);
 
     /* Fonts */
     --font-display: 'Anton', sans-serif;
     --font-body: 'Archivo', sans-serif;
-    --font-accent: 'Sacramento', cursive;
     --font-mono: 'Space Mono', monospace;
 
     /* Anton — Display/Headings */
@@ -57,9 +53,6 @@
     --fs-label: 12px;
     --fs-caption: 11px;
     --fs-input: 15px;
-
-    /* Sacramento — Script */
-    --fs-script: 54px;
 
     /* Space Mono — machine-readable metadata */
     --fs-mono-meta: 13px;
@@ -100,16 +93,13 @@
     --gap-hobbies: 18px;
     --gap-projects: 56px;
 
-    /* Broadsheet (resume v5) — layout. The left gutter is .container's own
-       64px padding + .resume-section's 40px = 104px; the rail rides on the
-       same edge via .container::before, left: var(--container-padding).
-       No separate gutter/rail tokens needed. */
+    /* Broadsheet layout. */
     --space-section-top: 54px;
     --space-row-y: 26px;
     --space-row-gap: 24px;
     --space-title-gap: 56px;
 
-    /* Broadsheet (resume v5) — borders, radii, effects */
+    /* Broadsheet - borders, radii, effects */
     --radius-control: 6px;
     --rule-hairline: 1px solid rgba(255, 255, 255, 0.12);
     --rule-section: 1px solid rgba(255, 255, 255, 0.16);
@@ -266,8 +256,35 @@ nav {
 
 .header-left {
     display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--color-accent);
+    color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.header-identity {
+    display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
+}
+
+.header-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    white-space: nowrap;
 }
 
 .red-tag {
@@ -291,78 +308,86 @@ nav {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 14px;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border: 0;
+    padding: 0;
     color: var(--color-text-body);
     text-decoration: none;
     font-size: var(--fs-nav);
     text-transform: uppercase;
     letter-spacing: var(--ls-label);
-    transition: border-color 0.2s ease, color 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 .nav-num {
     font-family: var(--font-mono);
-    color: var(--color-accent);
-    font-weight: 700;
+    color: var(--color-text-muted);
+    font-weight: 400;
     font-size: var(--fs-nav-num);
+    transition: color 0.2s ease;
 }
 
-.nav-links a.active {
-    border-color: var(--color-accent);
-    color: var(--color-text-primary);
-}
-
+.nav-links a.active,
 .nav-links a:hover {
-    border-color: var(--color-accent-hover);
     color: var(--color-text-primary);
+}
+
+.nav-links a.active .nav-num,
+.nav-links a:hover .nav-num {
+    color: var(--color-accent);
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: 12px;
     color: var(--color-text-primary);
     font-size: var(--fs-label);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: var(--ls-label);
 }
 
-/* Resume PDF download button, shown next to the "Available for work" badge.
-   Only visible ≥1024px (header-right is hidden below that) — the footer's
-   "Resume (PDF)" link covers tablet/mobile so it's always reachable. */
+/* Status badge, shown next to the resume button. */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 13px;
+    border-radius: 100px;
+    background: var(--color-watermark);
+    border: 1px solid rgba(233, 177, 76, 0.26);
+    color: var(--color-accent);
+    font-size: var(--fs-caption);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Resume PDF download button, shown next to the status badge. Only visible
+   ≥1024px (header-right is hidden below that) - the footer's "Resume (PDF)"
+   link covers tablet/mobile so it's always reachable. */
 .header-resume-link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: var(--color-text-primary);
+    color: var(--color-background);
     text-decoration: none;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: 6px 12px;
+    border: 0;
+    border-radius: 100px;
+    padding: 10px 20px;
+    background: var(--color-accent);
     font-family: var(--font-body);
     font-weight: 800;
     font-size: var(--fs-nav);
-    transition: border-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 .header-resume-link:hover {
-    border-color: var(--color-accent-hover);
-    color: var(--color-accent);
-}
-
-.header-resume-arrow {
-    color: var(--color-accent);
-}
-
-.header-star {
-    color: var(--color-accent);
-    display: inline-block;
-    vertical-align: middle;
-    animation: pulse 2s ease-in-out infinite;
-    margin: 0 5px;
+    background: var(--color-accent-hover);
 }
 
 /* ===== Hero Section ===== */
@@ -399,6 +424,10 @@ nav {
     line-height: 1;
     pointer-events: none;
     user-select: none;
+    /* Kills the word over the name column (left ~30%) so it stops reading
+       through the headline; still shows as texture behind the photo/stats. */
+    -webkit-mask-image: linear-gradient(to right, transparent 0, transparent 30%, black 45%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0, transparent 30%, black 45%, black 100%);
 }
 
 .hero-content {
@@ -411,10 +440,9 @@ nav {
 
 .hero-greeting {
     display: block;
-    font-family: var(--font-accent);
-    font-size: var(--fs-script);
-    line-height: 1;
-    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+    font-size: var(--fs-entry-title);
+    color: var(--color-text-muted);
 }
 
 .hero-name {
@@ -481,6 +509,8 @@ nav {
     object-fit: cover;
     object-position: center top;
     display: block;
+    -webkit-mask-image: linear-gradient(to bottom, black 0, black calc(100% - 110px), transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0, black calc(100% - 110px), transparent 100%);
 }
 
 /* ===== Hero Stats ===== */
@@ -540,7 +570,7 @@ nav {
     flex: 1 1 auto;
     height: 1px;
     min-width: 40px;
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(245, 240, 232, 0.16);
 }
 
 /* ===== College Section ===== */
@@ -671,7 +701,7 @@ nav {
 }
 
 /* ===== Page Title (404) ===== */
-/* Generic heading block for interior pages without a hero section — currently
+/* Generic heading block for interior pages without a hero section - currently
    only 404.html. (The resume page has its own Broadsheet title block below.) */
 .page-title-block {
     display: flex;
@@ -1047,13 +1077,13 @@ main > section.resume {
 
 .form-field.invalid input,
 .form-field.invalid textarea {
-    border-color: var(--color-accent);
+    border-color: var(--color-error);
 }
 
 .field-error {
     display: none;
     font-size: var(--fs-caption);
-    color: var(--color-accent-hover);
+    color: var(--color-error);
 }
 
 .form-field.invalid .field-error {
@@ -1104,7 +1134,7 @@ main > section.resume {
 }
 
 .form-status.error {
-    color: var(--color-accent-hover);
+    color: var(--color-error);
 }
 
 .contact-side {
@@ -1132,8 +1162,8 @@ main > section.resume {
     border-top: 1px solid var(--color-border);
 }
 
-/* ===== Resume — Broadsheet (v5) ===== */
-/* Header and footer are untouched here on purpose — they stay on the site's
+/* ===== Resume - Broadsheet ===== */
+/* Header and footer are untouched here on purpose - they stay on the site's
    normal symmetric 64px .container padding, same as every other page. The
    body's own asymmetric gutter (104px/64px) comes entirely from
    .resume-section below, layered on top of .container's native padding. */
@@ -1188,7 +1218,7 @@ main > section.resume {
 }
 
 /* Vertical rail: drawn as a hairline on each body section's own .container,
-   at left: var(--container-padding) — the exact edge the header/footer nav
+   at left: var(--container-padding) - the exact edge the header/footer nav
    already sit on. No absolutely-positioned rail element, no separate rail
    token; it inherits the site's existing --container-padding breakpoints
    (1024px/768px) for free. */
@@ -1296,12 +1326,12 @@ main > section.resume {
     margin-top: 18px;
 }
 
-/* Facts band — inverted, not flooded. Small bold text does not survive
+/* Facts band - inverted, not flooded. Small bold text does not survive
    sitting directly on saturated red at any weight/size worth using, so
    nothing here is black-or-near-black-on-coral any more: dark surface
    background, coral numerals, the site's normal caption colour for the
    labels. The colour event that the flood used to carry moves to the
-   border-top instead — still one coral mark, just not painted under text.
+   border-top instead - still one coral mark, just not painted under text.
    Same pattern as .resume-skills-section/.bs-colophon: outer section
    carries the background full-bleed, .container/.resume-section inside
    holds the grid. */
@@ -1338,7 +1368,7 @@ main > section.resume {
     margin-top: 5px;
 }
 
-/* Section headers: § 01 — Selected work, etc. */
+/* Section headers: § 01 - Selected work, etc. */
 .bs-section {
     padding: var(--space-section-top) 0 0;
 }
@@ -1362,7 +1392,7 @@ main > section.resume {
 .bs-section-line {
     flex: 1 1 auto;
     height: 1px;
-    background: var(--color-border-strong);
+    background: rgba(245, 240, 232, 0.16);
 }
 
 .bs-section-link {
@@ -1380,7 +1410,7 @@ main > section.resume {
     color: var(--color-accent-hover);
 }
 
-/* Project / experience rows — outlined numerals */
+/* Project / experience rows - outlined numerals */
 .bs-row {
     display: grid;
     grid-template-columns: 190px 1fr 150px;
@@ -1526,7 +1556,7 @@ main > section.resume {
     text-align: right;
 }
 
-/* § 04 — Stack: colophon */
+/* § 04 - Stack: colophon */
 .bs-colophon {
     margin-top: 54px;
     background: var(--color-surface-alt);
@@ -1575,7 +1605,7 @@ body.page-resume button:focus-visible {
 }
 
 /* ===== Broadsheet responsive =====
-   The gutter itself needs no breakpoints anymore — .container's own
+   The gutter itself needs no breakpoints anymore - .container's own
    padding already flexes at the site's existing 1024px/768px breakpoints
    (see the "Tablet" / "Mobile" rules below), and .resume-section's 40px
    stays constant on top of it. What's left here is just the broadsheet's
@@ -1600,6 +1630,10 @@ body.page-resume button:focus-visible {
 }
 
 @media (max-width: 900px) {
+    .page-resume .resume-section {
+        padding-left: 0;
+    }
+
     .page-resume main .container::before,
     .broadsheet-rail-label {
         display: none;
@@ -1805,7 +1839,6 @@ footer .container {
         --container-padding: 24px;
         --fs-watermark: 140px;
         --fs-name: 64px;
-        --fs-script: 36px;
         --fs-college: 48px;
     }
 
